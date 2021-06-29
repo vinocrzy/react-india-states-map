@@ -13,16 +13,14 @@ const Example = () => {
   return (
     <DatamapsIndia
       regionData={{
-        Maharashtra: {
-          value: 10
+        "Tamil Nadu": {
+          data: {}
         }
       }}
       hoverComponent={({ value }) => {
         return <span>{value}</span>
       }}
       mapLayout={{
-        title: 'Title',
-        legendTitle: 'Legend Title',
         startColor: '#FFDAB9',
         endColor: '#FF6347'
         hoverTitle: 'Count',
@@ -36,12 +34,6 @@ const Example = () => {
 }
 ```
 
-### Available Props
-
-### regionData (optional)
-#### Object of valid states with count. Find valid states below
-
-### mapLayout (optional)
 #### Object of map layout props
 
 ```
