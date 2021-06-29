@@ -61,7 +61,7 @@ class DatamapState extends React.Component<DatamapStateProps> {
   render() {
     const stateStyle = {
       fill:
-        this.state.isActive || this.props.activeState.name == this.props.name
+        this.state.isActive || this.props.activeState?.name == this.props.name
           ? this.props.hoverColor || "#FFCCBC"
           : this.props.fillColor,
       stroke: this.state.isActive
