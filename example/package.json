@@ -1,12 +1,11 @@
 {
-  "name": "react-datamaps-india-example",
-  "homepage": "https://sshyam-gupta.github.io/",
+  "name": "react-india-states-map-example",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "react": "^16.13.0",
-    "react-datamaps-india": "link:..",
+    "react-india-states-map": "link:..",
     "react-dom": "^16.13.0",
     "react-scripts": "^3.4.0"
   },

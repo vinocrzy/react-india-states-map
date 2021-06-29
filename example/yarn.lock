@@ -8326,14 +8326,6 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-"react-datamaps-india@link:..":
-  version "0.4.0"
-  dependencies:
-    d3-geo "^1.11.9"
-    d3-interpolate "^1.4.0"
-    d3-scale "^3.2.1"
-    topojson-client "^3.1.0"
-
 react-dev-utils@^10.2.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.0.tgz#b11cc48aa2be2502fb3c27a50d1dfa95cfa9dfe0"
@@ -8378,6 +8370,10 @@ react-error-overlay@^6.0.6:
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.6.tgz#ac4d9dc4c1b5c536c2c312bf66aa2b09bfa384e2"
   integrity sha512-Yzpno3enVzSrSCnnljmr4b/2KUQSMZaPuqmS26t9k4nW7uwJk6STWmH9heNjPuvqUTO3jOSPkHoKgO4+Dw7uIw==
+
+"react-india-states-map@link:..":
+  version "0.0.0"
+  uid ""
 
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.0"

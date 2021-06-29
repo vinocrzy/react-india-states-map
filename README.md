@@ -7,7 +7,7 @@
 ```tsx
 import * as React from 'react'
 
-import DatamapsIndia from 'react-datamaps-india'
+import DatamapsIndia from 'react-india-states-map'
 
 const Example = () => {
   return (

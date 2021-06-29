@@ -1,58 +1,56 @@
 import React, { Component } from "react";
 
-import ReactDatamaps from "react-datamaps-india";
+import ReactDatamaps from "react-india-states-map";
 
 const STATES = {
   "Andaman & Nicobar Island": {
     value: 20,
-    content:{
-      txt:"Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?"
-    }
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
   },
   "Andhra Pradesh": {
     value: 0,
-    content:{
-      txt:"Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?"
-    }
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
   },
   "Arunanchal Pradesh": {
     value: 0,
-    content:{
-      txt:"Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?"
-    }
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
   },
   Assam: {
     value: 0,
-    content:{
-      txt:"Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?"
-    }
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
   },
   Maharashtra: {
     value: 50,
-    content:{
-      txt:"Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?"
-    }
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
   },
 };
 
-
-
 export default class App extends Component {
-  state = {STATES,activeState:{data:STATES.Maharashtra,name:"India"}};
+  state = { STATES, activeState: { data: STATES.Maharashtra, name: "India" } };
 
-  onCountChange = e => {
+  onCountChange = (e) => {
     const target = e.target;
     if (!isFinite(target.value) || isNaN(target.value)) return;
     this.setState({
       [target.name]: {
-        value: isFinite(parseInt(target.value)) ? parseInt(target.value) : 0
-      }
+        value: isFinite(parseInt(target.value)) ? parseInt(target.value) : 0,
+      },
     });
   };
 
-  stateOnClick = (data,name) =>{
-    this.setState({activeState:{data,name}});
-  }
+  stateOnClick = (data, name) => {
+    this.setState({ activeState: { data, name } });
+  };
 
   render() {
     const { startColor, endColor, ...regionData } = this.state;
@@ -66,19 +64,18 @@ export default class App extends Component {
             width: "100%",
             paddingBottom: "100%",
             verticalAlign: "top",
-            overflow: "hidden"
+            overflow: "hidden",
           }}
         >
-         
           <ReactDatamaps
             regionData={regionData}
-            mapLayout={{  
+            mapLayout={{
               width: "",
               hoverTitle: "Count",
               noDataColor: "#D36418",
               borderColor: "#ffffff",
               hoverBorderColor: "pink",
-              hoverColor: "green"
+              hoverColor: "green",
             }}
             hoverComponent={({ value }) => {
               return (
@@ -91,11 +88,7 @@ export default class App extends Component {
           />
         </div>
         <div className="editor">
-         <h1>
-          {
-            this.state.activeState.name
-          }
-         </h1>
+          <h1>{this.state.activeState.name}</h1>
         </div>
         <style>{`
           .container {
