@@ -1,6 +1,6 @@
 # react-india-states-map
 
-> Datamaps for india States
+> Datamaps for indian States
 
 ## Usage
 
