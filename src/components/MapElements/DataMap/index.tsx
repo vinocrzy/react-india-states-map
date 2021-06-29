@@ -12,17 +12,21 @@ interface DataMapProps {
   mouseEnterOnDatamap(): void;
   mouseLeaveDatamap(): void;
   mouseEnterOnState(name: string, value: number): void;
-  onClick(data:any,name:string):void;
+  onClick(data: any, name: string): void;
   regionData: RegionData;
   noDataColor: string;
   borderColor: string;
   hoverColor?: string;
   hoverBorderColor?: string;
+  activeState: {
+    data: any;
+    name: string;
+  };
 }
 
 class DataMap extends React.Component<DataMapProps> {
   state = {
-    topoJSONfeatures: this.props.topoData
+    topoJSONfeatures: this.props.topoData,
   };
 
   constructor(props: DataMapProps) {
@@ -37,22 +41,18 @@ class DataMap extends React.Component<DataMapProps> {
     const newData = [
       ...this.state.topoJSONfeatures.slice(0, index),
       ...this.state.topoJSONfeatures.slice(index + 1),
-      this.state.topoJSONfeatures[index]
+      this.state.topoJSONfeatures[index],
     ];
 
     this.setState({
-      topoJSONfeatures: newData
+      topoJSONfeatures: newData,
     });
     this.props.mouseEnterOnState(name, value);
   }
 
   renderDatamapStates() {
-    const {
-      noDataColor,
-      borderColor,
-      hoverColor,
-      hoverBorderColor
-    } = this.props;
+    const { noDataColor, borderColor, hoverColor, hoverBorderColor } =
+      this.props;
 
     return this.state.topoJSONfeatures.map((feature, index) => {
       const stateValue = this.props.regionData[feature.properties.name];
@@ -71,6 +71,7 @@ class DataMap extends React.Component<DataMapProps> {
           mouseEnterOnState={this.handleMouseEnterOnState}
           value={stateValue}
           onClick={this.props.onClick}
+          activeState={this.props.activeState}
         />
       );
     });
@@ -82,7 +83,6 @@ class DataMap extends React.Component<DataMapProps> {
         onMouseMove={this.props.mouseMoveOnDatamap}
         onMouseEnter={this.props.mouseEnterOnDatamap}
         onMouseLeave={this.props.mouseLeaveDatamap}
-       
       >
         {this.renderDatamapStates()}
       </g>
@@ -98,7 +98,7 @@ function path(svgWidth: number, svgHeight: number) {
         .center([78, 27])
         .scale(width * 1.3)
         .translate([width / 2.5, height / 3]);
-    }
+    },
   };
   const projection = mapConfig.projection(svgWidth, svgHeight);
 

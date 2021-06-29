@@ -1,31 +1,36 @@
-import * as React from 'react'
+import * as React from "react";
 
 interface HoverInfoProps {
   position: {
-    x: number
-    y: number
-  }
-  active: boolean
-  valueTitle?: string
-  name: string
-  value: any
-  hoverComponent?: any
+    x: number;
+    y: number;
+  };
+  active: boolean;
+  valueTitle?: string;
+  name: string;
+  hoverComponent?: any;
 }
 
 class HoverInfo extends React.Component<HoverInfoProps> {
-  refHoverInfo: any
+  refHoverInfo: any;
 
   render() {
     const hoverInfoStyle = {
       left: this.props.position.x - 50,
       top: this.props.position.y - (this.refHoverInfo?.offsetHeight ?? 0) - 20,
-      display: this.props.active ? 'block' : 'none'
-    }
+      display: this.props.active ? "block" : "none",
+    };
 
-    const HoverComponent = this.props.hoverComponent
+    const HoverComponent = this.props.hoverComponent;
     return (
-      <div ref={(ref) => this.refHoverInfo = ref} className="HoverInfo" style={hoverInfoStyle}>
-        {this.props.hoverComponent ? <HoverComponent value={{ name: this.props.name }} /> : (
+      <div
+        ref={(ref) => (this.refHoverInfo = ref)}
+        className="HoverInfo"
+        style={hoverInfoStyle}
+      >
+        {this.props.hoverComponent ? (
+          <HoverComponent value={{ name: this.props.name }} />
+        ) : (
           <>
             <p>{this.props.name}</p>
           </>
@@ -58,8 +63,8 @@ class HoverInfo extends React.Component<HoverInfoProps> {
           }
         `}</style>
       </div>
-    )
+    );
   }
 }
 
-export default HoverInfo
+export default HoverInfo;

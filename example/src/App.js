@@ -85,6 +85,7 @@ export default class App extends Component {
               );
             }}
             onClick={this.stateOnClick}
+            activeState={this.state.activeState}
           />
         </div>
         <div className="editor">

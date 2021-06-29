@@ -10,12 +10,17 @@ interface DatamapStateProps {
   borderColor: string;
   hoverBorderColor?: string;
   index: number;
-  onClick(data:any,name:string):void;
+  onClick(data: any, name: string): void;
+  activeState: {
+    data: any;
+    name: string;
+  };
 }
 
 class DatamapState extends React.Component<DatamapStateProps> {
   state = {
-    isActive: false
+    isActive: false,
+    isClicked: false,
   };
 
   constructor(props: DatamapStateProps) {
@@ -36,27 +41,35 @@ class DatamapState extends React.Component<DatamapStateProps> {
     const { name, value, index } = this.props;
 
     this.setState({
-      isActive: true
+      isActive: true,
     });
     this.props.mouseEnterOnState(name, value, index);
   }
 
   handleMouseLeave() {
     this.setState({
-      isActive: false
+      isActive: false,
+    });
+  }
+
+  setClickActive() {
+    this.setState({
+      isClicked: true,
     });
   }
 
   render() {
     const stateStyle = {
-      fill: this.state.isActive
-        ? this.props.hoverColor || "#FFCCBC"
-        : this.props.fillColor,
+      fill:
+        this.state.isActive || this.props.activeState.name == this.props.name
+          ? this.props.hoverColor || "#FFCCBC"
+          : this.props.fillColor,
       stroke: this.state.isActive
         ? this.props.hoverBorderColor || "#FF5722"
         : this.props.borderColor,
-      strokeWidth: 0.5
+      strokeWidth: 0.5,
     };
+
     return (
       <path
         className="datamap-state"
@@ -64,7 +77,9 @@ class DatamapState extends React.Component<DatamapStateProps> {
         d={this.props.path()}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
-        onClick={()=>this.props.onClick(this.props.value,this.props.name)}
+        onClick={() => {
+          this.props.onClick(this.props.value, this.props.name);
+        }}
       />
     );
   }

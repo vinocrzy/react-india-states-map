@@ -5,33 +5,52 @@
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React, { useState } from "react";
 
-import DatamapsIndia from 'react-india-states-map'
+import ReactDatamaps from "react-india-states-map";
+
+const STATES = {
+  Maharashtra: {
+    value: 50,
+    content: {
+      txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam quae laboriosam sed magni aliquam dolore sequi libero harum, hic nihil. Omnis eos deserunt molestiae harum, cum nemo et temporibus?",
+    },
+  },
+};
 
 const Example = () => {
+  const [activeState, setactiveState] = useState({
+    data: STATES.Maharashtra,
+    name: "India",
+  });
+
+  const [stateLists, setStateLists] = useState(STATES);
+
+  const stateOnClick = (data, name) => {
+    setactiveState({ data, name });
+  };
+
   return (
-    <DatamapsIndia
-      regionData={{
-        "Tamil Nadu": {
-          data: {}
-        }
+    <ReactDatamaps
+      regionData={stateLists}
+      mapLayout={{
+        hoverTitle: "Count",
+        noDataColor: "#D36418",
+        borderColor: "#ffffff",
+        hoverBorderColor: "pink",
+        hoverColor: "green",
       }}
       hoverComponent={({ value }) => {
-        return <span>{value}</span>
+        return (
+          <>
+            <p>{value.name}</p>
+          </>
+        );
       }}
-      mapLayout={{
-        startColor: '#FFDAB9',
-        endColor: '#FF6347'
-        hoverTitle: 'Count',
-        noDataColor: '#f5f5f5',
-        borderColor: '#8D8D8D',
-        hoverBorderColor: '#8D8D8D',
-        hoverColor: 'green'
-      }}
+      onClick={stateOnClick}
     />
-  )
-}
+  );
+};
 ```
 
 #### Object of map layout props
