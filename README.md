@@ -48,6 +48,7 @@ const Example = () => {
         );
       }}
       onClick={stateOnClick}
+      activeState={activeState}
     />
   );
 };
