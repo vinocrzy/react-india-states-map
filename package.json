@@ -2,7 +2,7 @@
   "name": "react-india-states-map",
   "version": "1.0.0",
   "private": false,
-  "description": "Datamaps for india States",
+  "description": "Datamaps for indian States",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -73,5 +73,7 @@
     "serialize-javascript": "^2.1.1",
     "mem": "^4.0.0",
     "webpack-dev-server": "^3.1.11"
-  }
+  },
+  "repository": "https://github.com/vinocrzy/react-india-states-map.git",
+  "author": "vinocrzy <vinoth.vinothkanna.kanna2@gmail.com>"
 }
